@@ -11,15 +11,16 @@ public class UpdateInsert {
     public void Menu() throws IOException {
         Connection conn = null;
         boolean answer = false;
-        
+        final String dbuser = "root";
+        final String dbpassword = "bravoplatoon543";
+        final String dbschema = "Clean_And_Go";
+    
+        String url = ("jdbc:mysql://clean-and-go-db.cv7szo5pxvof.us-west-2.rds.amazonaws.com:3306/");
+        url += dbschema + "?user=" + dbuser + "&password=" + dbpassword;
         try {
            
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/clean_and_go?serverTimezone=UTC&useSSL=TRUE";
-            String user, pass;
-            user = readEntry("userid : ");
-            pass = readEntry("password: ");
-            conn = DriverManager.getConnection(url, user, pass);
+            conn = DriverManager.getConnection(url, dbuser, dbpassword);
             do {
                 printMenu();
                 System.out.print("Type in your option: ");
@@ -87,14 +88,17 @@ public class UpdateInsert {
 
     public static void AddNewEquipment(Connection conn) throws SQLException, IOException{
         Statement stmt = conn.createStatement();
-
-        String query = "insert into equipment " +
+        String number = "";
+        String brand = "";
+        String type = "";
+        String maintenence = "";
+        String query = "insert into Equipment " +
                        "values ('8', 'TCL', '2021-04-18', 3439.25," + 
                        "'washer', \"first Thursday of third quarter\", '4', '5', 312.56)"
         ;
 
         stmt.executeUpdate(query);
-         System.out.println("    New Equipment is Added");
+         System.out.println("New Equipment is Added");
          System.out.println("--------------------------------------------------\n");
          stmt.close();
 
@@ -108,7 +112,7 @@ public class UpdateInsert {
         ;
 
         stmt.executeUpdate(query);
-         System.out.println("    New Service is Added");
+         System.out.println("New Service is Added");
          System.out.println("--------------------------------------------------\n");
          stmt.close();
 
@@ -123,7 +127,7 @@ public class UpdateInsert {
         ;
 
         stmt.executeUpdate(query);
-         System.out.println("    New Customer is Added");
+         System.out.println("New Customer is Added");
          System.out.println("--------------------------------------------------\n");
          stmt.close();
 
