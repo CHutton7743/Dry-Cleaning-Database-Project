@@ -16,14 +16,16 @@ class CleanAndGo {
         EquipmentAndSupplies equipment = new EquipmentAndSupplies();
         Updates update = new Updates();
         Connection conn = null;
+        final String dbuser = "root";
+        final String dbpassword = "bravoplatoon543";
+        final String dbschema = "Clean_And_Go";
+    
+        String url = ("jdbc:mysql://clean-and-go-db.cv7szo5pxvof.us-west-2.rds.amazonaws.com:3306/");
+        url += dbschema + "?user=" + dbuser + "&password=" + dbpassword;
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/clean_and_go?serverTimezone=UTC&useSSL=TRUE";
-            String user, pass;
-            user = readEntry("userid : ");
-            pass = readEntry("password: ");
-            conn = DriverManager.getConnection(url, user, pass);
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, dbuser, dbpassword);
 
             boolean answer = false;
             do {
