@@ -35,15 +35,15 @@ class CleanAndGo {
                 String ch = readLine();
                 System.out.println();
                 switch (ch.charAt(0)) {
-                    case '1': equipment.menuDriver();
+                    case 'a': equipment.menuDriver();
                         break;
-                    case '2': customers.menuDriver();
+                    case 'b': customers.menuDriver();
                         break;
-                    case '3': employees.menuDriver();
+                    case 'c': employees.menuDriver();
                         break;
-                    case '4': update.menuDriver();
+                    case 'd': update.menuDriver();
                         break;
-                    case '5': answer = true;
+                    case 'q': answer = true;
                         break;
                     default:
                         System.out.println(" Not a valid option ");
@@ -89,11 +89,11 @@ class CleanAndGo {
         System.out.println("                      Welcome to Clean-and-Go Shop                           \n");
         System.out.println("                             ____________                                    \n");
         System.out.println("_____________________________________________________________________________\n");
-        System.out.println("                       (1) Equipment & Supplies                              \n");
-        System.out.println("                       (2) Customers & Services                              \n");
-        System.out.println("                       (3) Employees                                         \n");
-        System.out.println("                       (4) Updates                                           \n");
-        System.out.println("                       (5) Quit                                              \n");
+        System.out.println("                       (a) Equipment & Supplies                              \n");
+        System.out.println("                       (b) Customers & Services                              \n");
+        System.out.println("                       (c) Employees                                         \n");
+        System.out.println("                       (d) Updates                                           \n");
+        System.out.println("                       (q) Quit                                              \n");
         System.out.println("_____________________________________________________________________________\n");
     } 
 
